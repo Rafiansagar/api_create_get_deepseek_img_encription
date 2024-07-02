@@ -1,8 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "api_custom_data";
+include 'db.php';
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 $response = array();

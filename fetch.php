@@ -1,6 +1,6 @@
 <div id="posts">
     <?php
-    $apiUrl = 'http://localhost/api_create_and_get/api/'; // Replace with your API URL
+    $apiUrl = 'http://localhost/api_create_and_get/api/?api_key=123456789';
 
     function fetchPosts($url) {
         $ch = curl_init();

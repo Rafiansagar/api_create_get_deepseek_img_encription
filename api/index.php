@@ -5,6 +5,15 @@ header("Content-Type: application/json");
 
 $response = array();
 
+$api_key = '123456789';
+
+if (!isset($_GET['api_key']) || $_GET['api_key'] !== $api_key) {
+    $response['status'] = 'error';
+    $response['message'] = 'Invalid API Key';
+    echo json_encode($response, JSON_PRETTY_PRINT);
+    exit();
+}
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
@@ -36,4 +45,5 @@ if ($result) {
 echo json_encode($response);
 
 $conn->close();
+
 ?>

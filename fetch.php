@@ -1,6 +1,6 @@
 <div id="posts">
     <?php
-    $apiUrl = 'http://localhost/api_create_and_get/api.php'; // Replace with your WordPress site URL
+    $apiUrl = 'http://localhost/api_create_and_get/api/'; // Replace with your API URL
 
     function fetchPosts($url) {
         $ch = curl_init();
@@ -23,14 +23,16 @@
 
     if (isset($posts['error'])) {
         echo '<div class="error">' . htmlspecialchars($posts['error']) . '</div>';
+    } elseif ($posts['status'] === 'error') {
+        echo '<div class="error">' . htmlspecialchars($posts['message']) . '</div>';
     } else {
         $id = 1;
-        foreach ($posts as $post) {
+        foreach ($posts['api-data1'] as $post) {
             echo '<div class="post">';
             echo '<h4>' . $id++ . '</h4>';
             echo '<h2>' . htmlspecialchars($post['title']) . '</h2>';
-            echo '<div>' . $post['content'] . '</div>';
-            echo '<div>' . $post['created_at'] . '</div>';
+            echo '<div>' . htmlspecialchars($post['content']) . '</div>';
+            echo '<div>' . htmlspecialchars($post['created_at']) . '</div>';
             echo '</div>';
         }
     }

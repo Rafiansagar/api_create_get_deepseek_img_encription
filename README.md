@@ -1,8 +1,9 @@
-## SQL Command for creating tables
+## DB Name
 ``` PHP
-// DB Name
 api_custom_data
 ```
+
+## SQL Command for creating tables
 ``` SQL
 CREATE TABLE posts (
     id INT(11) AUTO_INCREMENT PRIMARY KEY,

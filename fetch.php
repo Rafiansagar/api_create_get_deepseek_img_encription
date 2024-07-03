@@ -1,7 +1,6 @@
 <div id="posts">
     <?php
 
-    // API Authentication key
     $apiUrl = 'http://localhost/api_create_and_get/api/?api_key=123456789';
 
     function fetchPosts($url) {

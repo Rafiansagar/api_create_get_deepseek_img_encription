@@ -3,16 +3,49 @@
 <head>
     <title>Create Post</title>
 </head>
-<body>
+<body style="background: #ecf0f3;">
     <h2>Create a New Post</h2>
     <form action="insert.php" method="POST">
         <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title" required><br><br>
+        <input type="text" id="title" name="title" onkeyup="displayTitle(this.value)" required><br><br>
         
         <label for="content">Content:</label><br>
-        <textarea id="content" name="content" rows="4" cols="50" required></textarea><br><br>
+        <textarea id="content" name="content" onkeyup="displayContent(this.value)" rows="4" cols="50" required></textarea><br><br>
         
         <input type="submit" value="Submit">
     </form>
+
+
+
+
+
+
+
+    <div style="padding: 50px; border-radius: 10px; margin: 60px auto 0; width: 300px; background: linear-gradient(145deg, #e2e8ec, #ffffff); box-shadow: 5px 5px 15px #D1D9E6, -5px -5px 15px #ffffff;">
+
+        <h2 style="margin-top: 0px;">Live Render</h2>
+        <b>Title:</b>
+        <span id="displayTitle"></span>
+        <br>
+        <br>
+        <b>Content:</b>
+        <span id="displayContent"></span>
+        <br>
+        <br>
+        <br>
+        <pre>Api Post Content In fetch.php</pre>
+    </div>
+
+
+    <script>
+        function displayTitle(text) {
+            document.getElementById('displayTitle').innerText = text;
+        }
+        function displayContent(text) {
+            document.getElementById('displayContent').innerText = text;
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
 </body>
 </html>

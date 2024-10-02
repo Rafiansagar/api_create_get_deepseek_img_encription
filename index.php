@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Create Post</title>
-</head>
-<body style="background: #ecf0f3;">
+
+
+<?php include 'header.php'; ?>
+
+<div class="container">
     <h2>Create a New Post</h2>
     <form action="insert.php" method="POST">
         <label for="title">Title:</label><br>
@@ -21,7 +20,7 @@
 
 
 
-    <div id="content" style="padding: 50px; border-radius: 10px; margin: 60px auto 0; width: 300px; background: linear-gradient(145deg, #e2e8ec, #ffffff); box-shadow: 5px 5px 15px #D1D9E6, -5px -5px 15px #ffffff;">
+    <div id="content" style="padding: 50px; border-radius: 10px; margin: 60px auto 0; width: 380px; background: linear-gradient(145deg, #e2e8ec, #ffffff); box-shadow: 5px 5px 15px #D1D9E6, -5px -5px 15px #ffffff;">
 
         <h2 style="margin-top: 0px;">Live Render</h2>
         <b>Title:</b>
@@ -35,17 +34,7 @@
         <br>
         <pre>Api Post Content In fetch.php</pre>
     </div>
+</div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-
-    <script>
-        function displayTitle(text) {
-            document.getElementById('displayTitle').innerText = text;
-        }
-        function displayContent(text) {
-            document.getElementById('displayContent').innerText = text;
-        }
-    </script>
-</body>
-</html>
+<?php include 'footer.php'; ?>

@@ -13,7 +13,7 @@ $stmt = $conn->prepare("INSERT INTO posts (title, content) VALUES (?, ?)");
 $stmt->bind_param("ss", $title, $content);
 
 if ($stmt->execute()) {
-    header("Location: index.html");
+    header("Location: index.php");
 } else {
     echo "Error: " . $stmt->error;
 }

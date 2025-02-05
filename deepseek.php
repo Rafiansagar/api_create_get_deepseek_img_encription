@@ -1,5 +1,5 @@
 <?php if ($_SERVER["REQUEST_METHOD"] === "POST" && !empty($_POST["message"])) {
-    $api_key = "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";
+    $api_key = "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";
     $url = "https://openrouter.ai/api/v1/chat/completions";
 
     $user_message = trim($_POST["message"]);

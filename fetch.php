@@ -49,10 +49,10 @@
     <div class="container">
         <h2>Deep Seek Api Response</h2>
         <div class="section-ai">
-            <p id="aiResponse">Waiting for response...</p>
+            <div id="aiResponse"></div>
             <form id="chatForm">
-                <textarea type="text" id="message" name="message" required></textarea>
-                <button type="submit">Ask AI</button>
+                <textarea type="text" id="message" name="message" placeholder="Ask AI..." required></textarea>
+                <button type="submit">Submit</button>
             </form>
         </div>
     </div>
@@ -72,6 +72,7 @@
                     dataType: "json",
                     success: function (response) {
                         $(".thinking").remove();
+                        $("#message").val("");
 
                         if (response.success) {
                             $("#aiResponse").append("<p>" + response.message + "</p>");
@@ -81,6 +82,7 @@
                     },
                     error: function () {
                         $(".thinking").remove();
+                        $("#message").val("");
                         $("#aiResponse").append("<p>Error: Failed to fetch response.</p>");
                     }
                 });

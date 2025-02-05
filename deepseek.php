@@ -31,7 +31,7 @@
     curl_close($ch);
 
     $result = json_decode($response, true);
-    $ai_response = $result['choices'][0]['message']['content'] ?? "No response received.";
+    $ai_response = $result['choices'][0]['message']['content'] ?? "No response received. (User: Sagar) Limit end in api host: https://openrouter.ai/settings/keys";
 
     echo json_encode(["success" => true, "message" => $ai_response]);
     exit;

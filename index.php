@@ -15,11 +15,6 @@
     </form>
 
 
-
-
-
-
-
     <div id="content" style="padding: 50px; border-radius: 10px; margin: 60px auto 0; width: 380px; background: linear-gradient(145deg, #e2e8ec, #ffffff); box-shadow: 5px 5px 15px #D1D9E6, -5px -5px 15px #ffffff;">
 
         <h2 style="margin-top: 0px;">Live Render</h2>
@@ -41,16 +36,18 @@
     = = = = = = = = = 
     </pre>
 
-    <h2>Encrypt Image</h2>
-    <input type="file" id="fileInput" />
-    <button id="encryptDownload">Encrypt and Download</button>
+    <div class="st-encryption download-yes">
+        <h2>Encrypt Image</h2>
+        <input type="file" id="fileInput" />
+        <button id="encryptDownload">Encrypt and Download</button>
 
-    <h2>Decrypt Image</h2>
-    <input type="file" id="decryptInput" />
-    <button id="decryptDownload">Decrypt and Display</button>
-    <br>
-    
-    <canvas id="decryptedCanvas"></canvas>
+        <h2>Decrypt Image</h2>
+        <input type="file" id="decryptInput" />
+        <button id="decryptDownload">Decrypt and Display</button>
+        <br>
+        
+        <canvas id="decryptedCanvas"></canvas>
+    </div>
 
 </div>
 

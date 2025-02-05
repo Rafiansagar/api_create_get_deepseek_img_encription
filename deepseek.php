@@ -18,7 +18,7 @@
         "Authorization: Bearer " . $api_key,
         "Content-Type: application/json",
         "HTTP-Referer: <YOUR_SITE_URL>",
-        "X-Title: Rafian Sagar Test"
+        "X-Title: <YOUR_SITE_NAME>"
     ];
 
     $ch = curl_init($url);

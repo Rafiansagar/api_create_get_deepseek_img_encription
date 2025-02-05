@@ -1,5 +1,6 @@
-<?php if ($_SERVER["REQUEST_METHOD"] === "POST" && !empty($_POST["message"])) {
-    $api_key = "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";
+<?php 
+if ($_SERVER["REQUEST_METHOD"] === "POST" && !empty($_POST["message"])) {
+    $api_key = "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";
     $url = "https://openrouter.ai/api/v1/chat/completions";
 
     $user_message = trim($_POST["message"]);
@@ -31,7 +32,7 @@
     curl_close($ch);
 
     $result = json_decode($response, true);
-    $ai_response = $result['choices'][0]['message']['content'] ?? "No response received. (User: Sagar) Limit end in api host: https://openrouter.ai/settings/keys";
+    $ai_response = $result['choices'][0]['message']['content'] ?? 'No response received. (User: Sagar) Limit end in api host: <a href="https://openrouter.ai/settings/keys">https://openrouter.ai/settings/keys</a>';
 
     echo json_encode(["success" => true, "message" => $ai_response]);
     exit;

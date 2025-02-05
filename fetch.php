@@ -47,47 +47,42 @@
 
     <!-- Deep Seek Api Response Start -->
     <div class="container">
-        <h2>Deep Seek Api Response</h2>
+        <h2>DeepSeek Api Response</h2>
         <div class="section-ai">
             <div id="aiResponse"></div>
-            <form id="chatForm">
-                <textarea type="text" id="message" name="message" placeholder="Ask AI..." required></textarea>
-                <button type="submit">Submit</button>
-            </form>
+            <textarea type="text" id="message" name="message" placeholder="Ask AI..." required></textarea>
+            <button onclick="sendMessage()">Submit</button>
         </div>
     </div>
     <script>
-        jQuery(document).ready(function ($) {
-            $("#chatForm").submit(function (event) {
-                event.preventDefault();
-
-                let userMessage = $("#message").val();
-                let thinkingMessage = $("<p class='thinking'>Thinking...</p>");
-                $("#aiResponse").append(thinkingMessage);
-
-                $.ajax({
-                    type: "POST",
-                    url: "deepseek.php",
-                    data: { message: userMessage },
-                    dataType: "json",
-                    success: function (response) {
-                        $(".thinking").remove();
-                        $("#message").val("");
-
-                        if (response.success) {
-                            $("#aiResponse").append("<p>" + response.message + "</p>");
-                        } else {
-                            $("#aiResponse").append("<p>Error: " + response.error + "</p>");
-                        }
-                    },
-                    error: function () {
-                        $(".thinking").remove();
-                        $("#message").val("");
-                        $("#aiResponse").append("<p>Error: Failed to fetch response.</p>");
+        function sendMessage() {
+            var userMessage = $("#message").val().trim();
+            if (!userMessage) {
+                alert("Please enter a message.");
+                return;
+            }
+            $("#aiResponse").append("<p><b>You:</b> " + userMessage + "</p>");
+            $.ajax({
+                url: "deepseek.php",
+                method: "POST", // Method type
+                data: { message: userMessage },
+                dataType: "json",
+                success: function(response) {
+                    if (response.success) {
+                        $("#aiResponse").append("<p><b>DeepSeek:</b> " + response.message + "</p>");
+                    } else {
+                        $("#aiResponse").append("<p><b>Error:</b> " + response.error + "</p>");
                     }
-                });
+                },
+                error: function(xhr, status, error) {
+                    console.error("Request failed:", status, error);
+                    $("#aiResponse").append("<p><b>Error:</b> Something went wrong. Please try again.</p>");
+                },
+                complete: function() {
+                    $("#message").val("");
+                }
             });
-        });
+        }
     </script>
     <!-- Deep Seek Api Response End -->
 </div>

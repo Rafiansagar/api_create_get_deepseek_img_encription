@@ -26,7 +26,7 @@
             padding: 50px;
             border-radius: 20px;
         }
-        .section-ai form textarea {
+        .section-ai textarea {
             outline: none;
             width: 100%;
             padding: 20px;

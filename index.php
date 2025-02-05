@@ -34,6 +34,24 @@
         <br>
         <pre>Api Post Content In fetch.php</pre>
     </div>
+
+    <pre>
+    = = = = = = = = = 
+    Blob Data
+    = = = = = = = = = 
+    </pre>
+
+    <h2>Encrypt Image</h2>
+    <input type="file" id="fileInput" />
+    <button id="encryptDownload">Encrypt and Download</button>
+
+    <h2>Decrypt Image</h2>
+    <input type="file" id="decryptInput" />
+    <button id="decryptDownload">Decrypt and Display</button>
+    <br>
+    
+    <canvas id="decryptedCanvas"></canvas>
+
 </div>
 
 

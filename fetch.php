@@ -44,6 +44,50 @@
             ?>
         </div>
     </div>
+
+    <!-- Deep Seek Api Response Start -->
+    <div class="container">
+        <h2>Deep Seek Api Response</h2>
+        <div class="section-ai">
+            <p id="aiResponse">Waiting for response...</p>
+            <form id="chatForm">
+                <textarea type="text" id="message" name="message" required></textarea>
+                <button type="submit">Ask AI</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        jQuery(document).ready(function ($) {
+            $("#chatForm").submit(function (event) {
+                event.preventDefault();
+
+                let userMessage = $("#message").val();
+                let thinkingMessage = $("<p class='thinking'>Thinking...</p>");
+                $("#aiResponse").append(thinkingMessage);
+
+                $.ajax({
+                    type: "POST",
+                    url: "deepseek.php",
+                    data: { message: userMessage },
+                    dataType: "json",
+                    success: function (response) {
+                        $(".thinking").remove();
+
+                        if (response.success) {
+                            $("#aiResponse").append("<p>" + response.message + "</p>");
+                        } else {
+                            $("#aiResponse").append("<p>Error: " + response.error + "</p>");
+                        }
+                    },
+                    error: function () {
+                        $(".thinking").remove();
+                        $("#aiResponse").append("<p>Error: Failed to fetch response.</p>");
+                    }
+                });
+            });
+        });
+    </script>
+    <!-- Deep Seek Api Response End -->
 </div>
 
 <?php include 'footer.php'; ?>

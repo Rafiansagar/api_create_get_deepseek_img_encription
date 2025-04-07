@@ -1,3 +1,9 @@
+## Information
+* Api Create & Get
+* Writing Live Rendering
+* DeepSeek AI Integration -> fetch.php
+
+
 ## DB Name
 ``` PHP
 api_custom_data
